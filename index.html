@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Expense Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <h2>💰 Expense Tracker</h2>
+
+        <nav>
+            <a href="#dashboard">🏠 Dashboard</a>
+            <a href="#add-expense">➕ Add Expense</a>
+            <a href="#expenses">📋 Expenses</a>
+        </nav>
+
+    </aside>
+
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <!-- Header -->
+
+        <header>
+
+            <div>
+                <h1>Smart Expense Tracker</h1>
+                <p>Manage and track your expenses easily</p>
+            </div>
+
+            <button class="add-btn" onclick="showAddExpense()">
+                + Add Expense
+            </button>
+
+        </header>
+
+
+        <!-- Dashboard -->
+
+        <section id="dashboard" class="dashboard">
+
+            <div class="card">
+
+                <div class="card-icon">💰</div>
+
+                <div>
+                    <p>Total Expense</p>
+                    <h2 id="totalExpense">₹0</h2>
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">📋</div>
+
+                <div>
+                    <p>Total Transactions</p>
+                    <h2 id="totalTransactions">0</h2>
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">📅</div>
+
+                <div>
+                    <p>Today's Date</p>
+                    <h2 id="today"></h2>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Add Expense -->
+
+        <section id="add-expense" class="expense-form-section">
+
+            <h2>Add New Expense</h2>
+
+            <form id="expenseForm">
+
+                <div class="form-grid">
+
+                    <div class="input-group">
+
+                        <label>Amount</label>
+
+                        <input
+                            type="number"
+                            id="amount"
+                            placeholder="Enter amount"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>Category</label>
+
+                        <select id="category" required>
+
+                            <option value="">Select Category</option>
+
+                            <option value="Food">Food</option>
+
+                            <option value="Travel">Travel</option>
+
+                            <option value="Shopping">Shopping</option>
+
+                            <option value="Education">Education</option>
+
+                            <option value="Bills">Bills</option>
+
+                            <option value="Others">Others</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>Description</label>
+
+                        <input
+                            type="text"
+                            id="description"
+                            placeholder="Enter description"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>Date</label>
+
+                        <input
+                            type="date"
+                            id="date"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>Payment Method</label>
+
+                        <select id="paymentMethod" required>
+
+                            <option value="">Select Payment</option>
+
+                            <option value="Cash">Cash</option>
+
+                            <option value="UPI">UPI</option>
+
+                            <option value="Card">Card</option>
+
+                            <option value="Net Banking">Net Banking</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <button type="submit" class="save-btn">
+                    Save Expense
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- Expense List -->
+
+        <section id="expenses" class="expense-list">
+
+            <div class="section-header">
+
+                <h2>Recent Expenses</h2>
+
+                <input
+                    type="text"
+                    id="search"
+                    placeholder="🔍 Search expenses..."
+                    onkeyup="searchExpenses()"
+                >
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+                            <th>Amount</th>
+                            <th>Category</th>
+                            <th>Description</th>
+                            <th>Date</th>
+                            <th>Payment</th>
+                            <th>Action</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="expenseTable">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
